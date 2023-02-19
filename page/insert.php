@@ -157,7 +157,7 @@ if (isset($_POST['upload'])) {
 			if (mysqli_connect_errno() > 0) {
 				die(mysqli_connect_error());
 			}
-			$sql = "SELECT product_id, product_name, qty, price,image_front, image_back FROM products";
+			$sql = "SELECT product_id, product_name, qty, price,image_front, image_back FROM products order by product_id asc";
 			$result = mysqli_query($cn, $sql);
 			if (mysqli_errno($cn) > 0) {
 				die(mysqli_error($cn));

@@ -49,21 +49,29 @@
                 <div class="categorie-line"></div>
             </div>
             <div class="product-wrapper">
+                <?php
+                $sql = 'SELECT product_id, product_name,image_front, price, categorie_id FROM products';
+                $result = $connection->query($sql);
+                while ($row = $result->fetch_assoc()) { ?>
 
-                <div class="product">
-                    <div class="box">
-                        <img src="..\image\IMG_1860_2400x.webp" alt="">
-                        <div class="box-detail">
-                            <a href="#">Quick View</a>
+                    <div class="product">
+                        <div class="box">
+                            <a href="#"><img src="..\image\<?php echo $row['image_front'] ?>" alt=""></a>
+                            <div class="box-detail">
+                                <a href="#">Quick View</a>
+                            </div>
                         </div>
+                        <div class="product-name"><a href="#"><?php echo $row['product_name'] ?></a></div>
+                        <div class="product-price"><?php echo $row['price'] ?></div>
                     </div>
-                    <div class="product-name"><a href="#">Varman lailong</a></div>
-                    <div class="product-price">100000000$</div>
-                </div>
 
+                <?php
+                }
+                ?>
             </div>
 
         </div>
+
 
     </div>
 
